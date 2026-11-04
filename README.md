@@ -6,6 +6,28 @@ A fictional real-estate portfolio website built as a classic WordPress theme, wi
 
 **Source:** https://github.com/KushaCodes1901/harbor-pine-demo
 
+## Screenshots
+
+Captured from the live demo at a 1280px browser viewport.
+
+### Homepage
+
+![Harbor & Pine homepage with illustrated hero, featured homes, garden introduction, and next steps](docs/screenshots/home.jpg)
+
+<details>
+<summary>Property details — The Cedar Court</summary>
+
+![The Cedar Court property page with house image, price, description, and inquiry button](docs/screenshots/property.jpg)
+
+</details>
+
+<details>
+<summary>Contact — property inquiry</summary>
+
+![Contact page showing The Cedar Court selected above the browser-only demo inquiry form](docs/screenshots/contact.jpg)
+
+</details>
+
 ## Public demo
 
 The `public/` folder contains Home, Buy, Sell, Relocate, Contact, three property detail pages, a 404 page, and local images/styles/scripts. All listings, addresses, prices, and business details are fictional demo content. House and garden illustrations are AI-generated.
