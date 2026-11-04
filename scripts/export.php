@@ -117,4 +117,13 @@ hp_export_write( $public . '/assets/properties.json', wp_json_encode( (object) $
 hp_export_write( $public . '/assets/theme.js', file_get_contents( get_template_directory() . '/assets/theme.js' ) );
 foreach ( array( 'demo.js', 'demo.css' ) as $file ) { hp_export_write( $public . '/assets/' . $file, file_get_contents( $release . '/scripts/' . $file ) ); }
 hp_export_write( $public . '/robots.txt', "User-agent: *\nAllow: /\n" );
+// Keep the portfolio's theme source synchronized with the exported snapshot.
+$theme_root = get_template_directory();
+foreach ( new RecursiveIteratorIterator( new RecursiveDirectoryIterator( $theme_root, FilesystemIterator::SKIP_DOTS ) ) as $file ) {
+    $relative = str_replace( '\\', '/', substr( $file->getPathname(), strlen( $theme_root ) + 1 ) );
+    if ( str_starts_with( $relative, 'tests/' ) || str_starts_with( $relative, '.' ) ) { continue; }
+    if ( in_array( strtolower( $file->getExtension() ), array( 'php', 'css', 'js', 'png', 'jpg', 'jpeg', 'webp', 'svg', 'md' ), true ) ) {
+        hp_export_write( $release . '/wordpress-theme/' . $relative, file_get_contents( $file->getPathname() ) );
+    }
+}
 echo 'Export complete: ' . count( $routes ) . ' pages, a 404 page, and ' . count( $copied ) . ' local assets.' . PHP_EOL;
