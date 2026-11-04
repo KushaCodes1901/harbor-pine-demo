@@ -2,6 +2,10 @@
 
 A fictional real-estate portfolio website built as a classic WordPress theme, with a public static snapshot for Vercel. Built with PHP, plain CSS, and vanilla JavaScript.
 
+**Live demo:** https://harbor-pine-demo-one.vercel.app/
+
+**Source:** https://github.com/KushaCodes1901/harbor-pine-demo
+
 ## Public demo
 
 The `public/` folder contains Home, Buy, Sell, Relocate, Contact, three property detail pages, a 404 page, and local images/styles/scripts. All listings, addresses, prices, and business details are fictional demo content. House and garden illustrations are AI-generated.
