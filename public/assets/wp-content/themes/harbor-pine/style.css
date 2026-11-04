@@ -1,0 +1,220 @@
+/*
+Theme Name: Harbor & Pine
+Description: A classic theme for a fictional real estate portfolio demo.
+Version: 1.0.0
+Text Domain: harbor-pine
+Requires PHP: 8.0
+*/
+
+/* Foundations */
+:root { --ivory: #faf7f0; --pine: #10563f; --ink: #182e29; --sage: #e9eddf; --line: #ccd0c4; --muted: #52625b; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--ivory); color: var(--ink); font: 17px/1.6 Arial, Helvetica, sans-serif; }
+a { color: var(--pine); text-underline-offset: 4px; }
+a:hover { text-decoration-thickness: 2px; }
+img { display: block; max-width: 100%; height: auto; }
+button, input, textarea, select { font: inherit; }
+:focus-visible { outline: 3px solid #967224; outline-offset: 4px; }
+h1, h2, h3, .hp-wordmark, .hp-pathway strong { font-family: Georgia, 'Times New Roman', serif; font-weight: 600; letter-spacing: -.045em; line-height: 1.08; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { font-size: clamp(38px, 5vw, 56px); }
+h2 { font-size: clamp(30px, 3.3vw, 42px); margin-bottom: 24px; }
+h3 { font-size: 28px; margin-bottom: 8px; }
+section[id] { scroll-margin-top: 24px; }
+.hp-site { width: 100%; background: var(--ivory); }
+.hp-content { max-width: 1240px; margin-inline: auto; padding-inline: 32px; }
+.hp-section { margin-block: 42px; }
+.hp-button { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: 11px 28px; border: 1px solid var(--pine); border-radius: 9px; background: var(--pine); color: #fff; font-weight: 700; text-align: center; text-decoration: none; cursor: pointer; line-height: 1.4; }
+.hp-button:hover { background: #0b412f; color: #fff; }
+.hp-skip-link { position: fixed; left: 16px; top: -100px; z-index: 1000; background: white; padding: 12px; }
+.hp-skip-link:focus { top: 12px; }
+.hp-eyebrow { text-transform: uppercase; letter-spacing: .13em; font-size: 12px; font-weight: bold; color: var(--pine); margin-bottom: 14px; }
+.hp-small { font-size: 13px; color: var(--muted); margin: 16px 0 0; }
+
+/* Header and responsive navigation */
+.hp-header { min-height: 108px; padding: 24px max(32px, calc((100% - 1176px) / 2)); display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--line); }
+.hp-wordmark { font-size: clamp(28px, 3.4vw, 42px); color: var(--ink); text-decoration: none; white-space: nowrap; }
+.hp-logo { width: auto; max-width: 260px; max-height: 64px; object-fit: contain; }
+.hp-nav { display: flex; align-items: center; min-width: 0; }
+.hp-menu { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 36px; padding: 0; margin: 0; list-style: none; }
+.hp-menu li { position: relative; }
+.hp-nav a { display: inline-block; color: var(--ink); text-decoration: none; padding-block: 8px; }
+.hp-nav a:hover, .hp-menu .current-menu-item > a { text-decoration: underline; }
+.hp-menu .sub-menu { display: none; position: absolute; z-index: 10; left: 0; top: 100%; min-width: 190px; padding: 12px; margin: 0; list-style: none; background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; }
+.hp-menu li:hover > .sub-menu, .hp-menu li:focus-within > .sub-menu { display: block; }
+.hp-menu .sub-menu a { display: block; }
+.hp-menu-toggle { display: none; }
+
+/* Homepage */
+.hp-hero { display: grid; grid-template-columns: .85fr 1.15fr; max-width: 1240px; margin-inline: auto; }
+.hp-hero-copy { padding: 64px 42px; align-self: center; }
+.hp-hero h1 { font-size: clamp(58px, 6.8vw, 86px); margin-bottom: 24px; }
+.hp-hero p { margin-bottom: 30px; max-width: 31ch; }
+.hp-hero-image { width: 100%; height: 100%; min-height: 500px; object-fit: cover; object-position: center; }
+.hp-pathways { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
+.hp-pathway { display: flex; align-items: center; gap: 20px; padding: 25px 22px; border-radius: 12px; background: var(--sage); color: var(--ink); text-decoration: none; }
+.hp-pathway:hover { background: #dfe5d4; }
+.hp-pathway svg { width: 40px; flex-shrink: 0; color: var(--pine); }
+.hp-pathway strong { display: block; font-size: 28px; margin-bottom: 6px; }
+.hp-pathway span span { display: block; font-size: 14px; line-height: 1.4; }
+.hp-arrow { margin-left: auto; font-size: 28px; }
+.hp-empty { padding: 32px; background: var(--sage); border-radius: 12px; }
+.hp-empty p:last-child { margin-bottom: 0; }
+
+/* Homepage story, process, and closing invitation. */
+.hp-section-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px; margin-bottom: 24px; }
+.hp-section-heading h2 { margin: 0; }
+.hp-text-link { display: inline-flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 700; text-decoration: none; }
+.hp-text-link:hover { text-decoration: underline; }
+.hp-approach { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(28px, 5vw, 64px); margin-block: 68px; }
+.hp-approach-art { overflow: hidden; border-radius: 12px 90px 12px 12px; }
+.hp-approach-image { width: 100%; height: auto; aspect-ratio: 1.15; object-fit: cover; }
+.hp-approach-copy { padding-block: 12px; min-width: 0; }
+.hp-approach-copy h2 { font-size: clamp(34px, 4vw, 48px); max-width: 15ch; }
+.hp-approach-copy > p:not(.hp-eyebrow) { color: var(--muted); max-width: 45ch; margin-bottom: 26px; }
+.hp-next-steps { padding-block: 44px 52px; border-top: 1px solid var(--line); }
+.hp-steps-heading { text-align: center; max-width: 700px; margin: 0 auto 40px; }
+.hp-steps-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 0; margin: 0; list-style: none; }
+.hp-steps-list li { min-width: 0; padding: 0 30px; }
+.hp-steps-list li:first-child { padding-left: 0; }
+.hp-steps-list li:last-child { padding-right: 0; }
+.hp-steps-list li + li { border-left: 1px solid var(--line); }
+.hp-step-number { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: var(--sage); border-radius: 50%; font: 22px Georgia, serif; color: var(--pine); margin-bottom: 20px; }
+.hp-steps-list h3 { font-size: 28px; margin-bottom: 14px; }
+.hp-steps-list p { font-size: 15px; color: var(--muted); margin-bottom: 0; }
+.hp-home-closing { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: clamp(28px, 4.5vw, 56px); background: var(--pine); color: var(--ivory); border-radius: 14px; margin-block: 16px 48px; }
+.hp-home-closing > div { min-width: 0; }
+.hp-home-closing .hp-eyebrow { color: #d5e3ce; }
+.hp-home-closing h2 { font-size: clamp(36px, 4.5vw, 52px); margin-bottom: 16px; }
+.hp-closing-copy { max-width: 48ch; margin-bottom: 0; color: #e1e9dc; }
+.hp-button--ivory { flex-shrink: 0; gap: 18px; color: var(--pine); background: var(--ivory); border-color: var(--ivory); }
+.hp-button--ivory:hover { background: var(--sage); color: var(--pine); }
+.hp-home-closing a:focus-visible { outline-color: #f0d28c; }
+
+/* One card template is shared by Home and Buy. */
+.hp-property-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.hp-property-card { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.hp-card-link { display: block; height: 100%; color: var(--ink); text-decoration: none; }
+.hp-card-link:hover h3 { text-decoration: underline; text-underline-offset: 4px; }
+.hp-card-link:focus-visible { outline-offset: -4px; }
+.hp-card-image { width: 100%; aspect-ratio: 1.55; object-fit: cover; }
+.hp-card-copy { padding: 18px 20px; }
+.hp-price { font-size: 23px; line-height: 1.4; font-weight: bold; color: var(--pine); margin-bottom: 10px; }
+.hp-facts { display: flex; flex-wrap: wrap; padding: 0; margin: 0; list-style: none; font-size: 15px; }
+.hp-facts li + li { margin-left: 20px; padding-left: 20px; border-left: 1px solid #a5afa4; }
+.hp-page-intro { max-width: 760px; margin-bottom: 36px; }
+.hp-page-layout { max-width: 820px; padding-inline: 32px; margin-inline: auto; }
+.hp-page-copy { overflow-wrap: anywhere; }
+.hp-page-copy:after { content: ''; display: block; clear: both; }
+.hp-page-copy iframe { max-width: 100%; }
+.hp-page-copy .alignleft { float: left; margin: 0 20px 16px 0; }
+.hp-page-copy .alignright { float: right; margin: 0 0 16px 20px; }
+.hp-page-copy .aligncenter { margin-inline: auto; }
+
+/* Contact and CF7: plugin controls validation and submission. */
+.hp-contact { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; margin-block: 52px 60px; }
+.hp-contact > div { min-width: 0; }
+.hp-business-details { overflow-wrap: anywhere; }
+.hp-business-details dt { font-weight: bold; margin-top: 18px; }
+.hp-business-details dd { margin: 0; }
+.hp-form-panel { border: 1px solid var(--line); border-radius: 12px; padding: 28px; min-width: 0; }
+.hp-form-panel h2 { font-size: 34px; }
+.hp-demo-note { border-left: 3px solid var(--pine); padding-left: 14px; font-size: 14px; }
+.hp-selected-property { background: var(--sage); padding: 16px; border-radius: 6px; }
+.hp-selected-property a { font-size: 13px; }
+#contact .hp-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+/* CF7 automatically adds paragraphs; labels must remain the grid items. */
+#contact .hp-form-grid > p { display: contents; }
+#contact .hp-form-field { display: block; min-width: 0; font-size: 14px; font-weight: bold; }
+#contact .hp-form-field > br:last-child { display: none; }
+#contact .hp-form-field--full { grid-column: 1 / -1; }
+#contact .hp-form-field p, #contact .hp-form-actions p { margin: 0; }
+#contact .wpcf7-form-control-wrap { display: block; margin-top: 6px; }
+#contact input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]), #contact textarea, #contact select { display: block; width: 100%; max-width: 100%; min-width: 0; border: 1px solid #9fa99e; border-radius: 7px; padding: 10px 12px; color: var(--ink); background: transparent; font-weight: normal; }
+#contact textarea { min-height: 140px; resize: vertical; }
+#contact .hp-form-actions .hp-button { width: 100%; }
+#contact .wpcf7-spinner { display: block; margin: 8px auto 0; }
+#contact .wpcf7-not-valid-tip { color: #a02b23; font-size: 13px; font-weight: normal; margin-top: 5px; }
+#contact .wpcf7-not-valid { border-color: #a02b23 !important; }
+#contact .wpcf7 form .wpcf7-response-output { margin: 20px 0 0; padding: 14px; border-radius: 6px; color: var(--ink); background: white; font-size: 15px; }
+
+/* Detail and footer */
+.hp-detail-wrap { max-width: 920px; margin: 32px auto 56px; padding-inline: 28px; }
+.hp-back { display: inline-block; margin-bottom: 24px; text-decoration: none; }
+.hp-detail { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.hp-detail-image { width: 100%; max-height: 570px; object-fit: cover; }
+.hp-detail-copy { padding: 32px; }
+.hp-detail h1 { margin-bottom: 12px; }
+.hp-detail .hp-price { font-size: 30px; }
+.hp-address { color: var(--muted); margin-bottom: 16px; }
+.hp-description { margin-block: 24px; }
+.hp-detail .hp-button { width: 100%; }
+.hp-footer { background: #dfe5d4; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px max(32px, calc((100% - 1176px) / 2)); }
+.hp-footer .hp-wordmark { font-size: 29px; }
+.hp-footer p { font-size: 12px; margin: 0; }
+
+@media (max-width: 900px) {
+    .hp-header { padding: 22px 26px; min-height: 88px; }
+    .hp-menu { gap: 8px 22px; }
+    .hp-hero-copy { padding: 36px 28px; }
+    .hp-hero-image { min-height: 410px; }
+    .hp-content { padding-inline: 24px; }
+    .hp-pathway { padding: 20px 16px; gap: 12px; }
+    .hp-pathway svg { width: 28px; }
+    .hp-pathway strong { font-size: 24px; }
+    .hp-property-grid { gap: 16px; }
+    .hp-card-copy { padding: 16px 12px; }
+    .hp-card-copy h3 { font-size: 24px; }
+    .hp-contact { gap: 28px; }
+}
+@media (max-width: 680px) {
+    body { font-size: 16px; background: var(--ivory); }
+    .hp-header { flex-wrap: wrap; padding: 20px; min-height: 78px; gap: 16px; }
+    .hp-header .hp-wordmark { font-size: 30px; }
+    .hp-logo { max-width: 210px; max-height: 50px; }
+    .hp-menu-toggle:not([hidden]) { display: inline-flex; align-items: center; gap: 8px; padding: 7px; min-height: 44px; background: none; border: 0; color: var(--pine); cursor: pointer; font-size: 13px; }
+    .hp-menu-toggle span { font-size: 24px; }
+    .hp-nav { width: 100%; }
+    .hp-nav--enhanced { display: none; }
+    .hp-nav--enhanced.is-open { display: flex; }
+    .hp-menu { width: 100%; gap: 8px 20px; }
+    .hp-menu .sub-menu { display: block; position: static; min-width: 0; border: 0; padding: 0 0 0 14px; }
+    .hp-hero { display: flex; flex-direction: column; }
+    .hp-hero-image { order: -1; min-height: 0; height: auto; aspect-ratio: 1.65; object-fit: cover; }
+    .hp-hero-copy { padding: 28px 20px 8px; width: 100%; }
+    .hp-hero h1 { font-size: 52px; margin-bottom: 16px; }
+    .hp-hero p { margin-bottom: 22px; }
+    .hp-hero .hp-button { width: 100%; }
+    .hp-content { padding-inline: 20px; }
+    .hp-pathways { grid-template-columns: 1fr; gap: 10px; margin-top: 24px; }
+    .hp-pathway { padding: 18px; gap: 20px; }
+    .hp-pathway svg { width: 34px; }
+    .hp-pathway strong { font-size: 23px; }
+    .hp-pathway span span { font-size: 13px; }
+    .hp-section { margin-block: 32px; }
+    .hp-section-heading { align-items: flex-start; flex-direction: column; gap: 12px; }
+    .hp-approach { grid-template-columns: 1fr; gap: 24px; margin-block: 44px; }
+    .hp-approach-image { aspect-ratio: 1.35; }
+    .hp-approach-copy { padding-block: 0; }
+    .hp-next-steps { padding-block: 32px; }
+    .hp-steps-heading { text-align: left; margin-bottom: 28px; }
+    .hp-steps-list { grid-template-columns: 1fr; gap: 24px; }
+    .hp-steps-list li, .hp-steps-list li:first-child, .hp-steps-list li:last-child { padding: 0; }
+    .hp-steps-list li + li { border-left: 0; border-top: 1px solid var(--line); padding-top: 24px; }
+    .hp-step-number { margin-bottom: 14px; }
+    .hp-home-closing { flex-direction: column; align-items: flex-start; gap: 24px; padding: 28px 24px; margin-block: 12px 32px; }
+    .hp-home-closing .hp-button { width: 100%; flex-shrink: 1; white-space: normal; }
+    .hp-property-grid { grid-template-columns: 1fr; gap: 22px; }
+    .hp-card-copy { padding: 18px; }
+    .hp-card-copy h3 { font-size: 29px; }
+    .hp-contact { grid-template-columns: 1fr; gap: 12px; }
+    .hp-form-panel { padding: 20px; }
+    #contact .hp-form-grid { grid-template-columns: 1fr; }
+    #contact input, #contact textarea { font-size: 16px; }
+    .hp-page-layout { padding-inline: 20px; }
+    .hp-detail-wrap { margin-block: 24px 32px; padding-inline: 16px; }
+    .hp-detail-copy { padding: 22px; }
+    .hp-footer { flex-direction: column; align-items: flex-start; gap: 12px; padding: 24px 20px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

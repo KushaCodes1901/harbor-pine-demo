@@ -1,0 +1,3 @@
+#contact .hp-form-field input, #contact .hp-form-field textarea { margin-top: 6px; }
+#contact #hp-demo-response { margin: 20px 0 0; padding: 16px; border: 2px solid var(--pine); border-radius: 7px; background: var(--sage); }
+[hidden] { display: none !important; }
